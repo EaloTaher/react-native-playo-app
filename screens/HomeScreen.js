@@ -310,6 +310,7 @@ const HomeScreen = () => {
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {data?.map((item, index) => (
               <ImageBackground
+                key={index}
                 imageStyle={{ borderRadius: 10 }}
                 style={{
                   width: 220,
