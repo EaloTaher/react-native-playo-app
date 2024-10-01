@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
@@ -20,7 +19,6 @@ function BottomTabs() {
         name="HOME"
         component={HomeScreen}
         options={{
-          headerShown: false,
           tabBarActiveTintColor: "green",
           tabBarIcon: ({ focused }) =>
             focused ? (
@@ -99,5 +97,3 @@ const StackNavigator = () => {
 };
 
 export default StackNavigator;
-
-const styles = StyleSheet.create({});
