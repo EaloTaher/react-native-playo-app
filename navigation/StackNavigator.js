@@ -1,14 +1,22 @@
-import { StyleSheet, Text, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+//Main Screens
 import HomeScreen from "../screens/HomeScreen";
 import BookScreen from "../screens/BookScreen";
 import PlayScreen from "../screens/PlayScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Feather from "@expo/vector-icons/Feather";
-import { NavigationContainer } from "@react-navigation/native";
 import VenueInfoScreen from "../screens/VenueInfoScreen";
+//Auth Screens
+import StartScreen from "../screens/StartScreen";
+import LoginScreen from "../screens/LoginScreen";
+import RegisterScreen from "../screens/RegisterScreen";
+import PasswordScreen from "../screens/PasswordScreen";
+import SelectImage from "../screens/SelectImage";
+import PreFinalScreen from "../screens/PreFinalScreen";
+import NameScreen from "../screens/NameScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -96,10 +104,52 @@ function MainStack() {
   );
 }
 
+const AuthStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Start"
+        component={StartScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Register"
+        component={RegisterScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Password"
+        component={PasswordScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Image"
+        component={SelectImage}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="PreFinal"
+        component={PreFinalScreen}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Name"
+        component={NameScreen}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+};
 const StackNavigator = () => {
   return (
     <NavigationContainer>
-      <MainStack />
+      <AuthStack />
     </NavigationContainer>
   );
 };
