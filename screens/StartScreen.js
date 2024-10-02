@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { useEffect, useRef } from "react";
 import {
   StyleSheet,
@@ -10,6 +11,7 @@ import {
 import MapView, { Marker } from "react-native-maps";
 
 const StartScreen = () => {
+  const navigation = useNavigation();
   const mapView = useRef(null);
   const users = [
     {
@@ -214,6 +216,9 @@ const StartScreen = () => {
         style={{ padding: 10, backgroundColor: "white", marginTop: "auto" }}
       >
         <Pressable
+          onPress={() => {
+            navigation.navigate("Register");
+          }}
           style={{
             marginTop: "auto",
             backgroundColor: "#1ec921",
