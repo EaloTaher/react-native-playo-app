@@ -8,6 +8,7 @@ import ProfileScreen from "../screens/ProfileScreen";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Feather from "@expo/vector-icons/Feather";
 import { NavigationContainer } from "@react-navigation/native";
+import VenueInfoScreen from "../screens/VenueInfoScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -78,8 +79,15 @@ function MainStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="main"
+        name="Main"
         component={BottomTabs}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Venue"
+        component={VenueInfoScreen}
         options={{
           headerShown: false,
         }}

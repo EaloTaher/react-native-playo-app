@@ -1,11 +1,25 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const VenueCard = ({ item }) => {
+  const navigation = useNavigation();
   return (
     <View style={{ margin: 15 }}>
       <Pressable
+        onPress={() =>
+          navigation.navigate("Venue", {
+            name: item.name,
+            image: item.newImage,
+            sportsAvailable: item.sportsAvailable,
+            rating: item.rating,
+            timings: item.timings,
+            address: item.address,
+            location: item.location,
+            bookings: item.bookings,
+          })
+        }
         style={{
           backgroundColor: "white",
           borderRadius: 5,
