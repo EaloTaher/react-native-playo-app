@@ -17,10 +17,11 @@ import PasswordScreen from "../screens/PasswordScreen";
 import SelectImage from "../screens/SelectImage";
 import PreFinalScreen from "../screens/PreFinalScreen";
 import NameScreen from "../screens/NameScreen";
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-
 function BottomTabs() {
   return (
     <Tab.Navigator>
@@ -147,9 +148,10 @@ const AuthStack = () => {
   );
 };
 const StackNavigator = () => {
+  const { token } = useContext(AuthContext);
   return (
     <NavigationContainer>
-      <AuthStack />
+      {token === null || token === "" ? <AuthStack /> : <MainStack />}
     </NavigationContainer>
   );
 };

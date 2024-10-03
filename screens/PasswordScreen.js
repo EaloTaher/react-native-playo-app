@@ -10,11 +10,15 @@ import {
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import { saveRegistrationProgress } from "../registrationUtils";
 
 const PasswordScreen = () => {
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
   const handleNext = () => {
+    if (password.trim() !== "") {
+      saveRegistrationProgress("Password", { password });
+    }
     navigation.navigate("Name");
   };
   return (

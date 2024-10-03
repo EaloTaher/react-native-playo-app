@@ -9,13 +9,29 @@ import {
 import React, { useEffect, useState } from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
+import {
+  getRegistrationProgress,
+  saveRegistrationProgress,
+} from "../registrationUtils";
 
 const NameScreen = () => {
   const navigation = useNavigation();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
+  useEffect(() => {
+    getRegistrationProgress("Name").then((progressData) => {
+      if (progressData) {
+        setFirstName(progressData.firstName || "");
+        setLastName(progressData.lastName || "");
+      }
+    });
+  }, []);
+
   const saveName = () => {
+    if (firstName.trim() !== "") {
+      saveRegistrationProgress("Name", { firstName, lastName });
+    }
     navigation.navigate("Image");
   };
   return (
