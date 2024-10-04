@@ -19,6 +19,8 @@ import PreFinalScreen from "../screens/PreFinalScreen";
 import NameScreen from "../screens/NameScreen";
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext";
+import CreateActivity from "../screens/CreateActivity";
+import TagVenueScreen from "../screens/TagVenueScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -97,6 +99,20 @@ function MainStack() {
       <Stack.Screen
         name="Venue"
         component={VenueInfoScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Create"
+        component={CreateActivity}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="TagVenue"
+        component={TagVenueScreen}
         options={{
           headerShown: false,
         }}
